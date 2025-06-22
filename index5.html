@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economy | Western World Insights</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f39c12 0%, #f1c40f 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .main-content {
+            background: white;
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .article-header {
+            background: linear-gradient(135deg, #f39c12, #f1c40f);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .article-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .economy-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            padding: 3rem;
+        }
+
+        .economy-content h3 {
+            color: #f39c12;
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem 0;
+            border-left: 4px solid #f1c40f;
+            padding-left: 1rem;
+        }
+
+        .economy-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .market-indicator {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #f39c12;
+        }
+
+        .market-indicator h4 {
+            color: #f39c12;
+            margin-bottom: 0.5rem;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 1.5rem 0;
+        }
+
+        .chart-placeholder {
+            height: 200px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f39c12;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+
+        .sidebar {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            height: fit-content;
+        }
+
+        .sidebar h3 {
+            color: #f39c12;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .news-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-item h4 {
+            color: #495057;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .news-item p {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, #f39c12, #f1c40f);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-button {
+            background: linear-gradient(45deg, #f39c12, #f1c40f);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            margin: 2rem 3rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+        }
+
+        footer {
+            background: rgba(44, 62, 80, 0.9);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .economy-grid {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .animation-fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo" onclick="goHome()">WW Insights</a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index2.html">Politics</a></li>
+                        <li><a href="index3.html">Technology</a></li>
+                        <li><a href="index4.html">Culture</a></li>
+                        <li><a href="index5.html" style="background: rgba(255,255,255,0.2);">Economy</a></li>
+                        <li><a href="index6.html">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1 class="animation-fade-in">📈 Economic Trends</h1>
+            <p class="animation-fade-in">Comprehensive analysis of financial markets, business developments, and
+                economic policies</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="main-content animation-fade-in">
+            <section class="article-header">
+                <h2>Western Economic Landscape</h2>
+                <p>Insights into the financial systems and market forces shaping the Western world</p>
+            </section>
+
+            <div class="economy-grid">
+                <div class="economy-content">
+                    <h3>Market Overview & Trends</h3>
+                    <p>The Western economies continue to demonstrate resilience amid global challenges. Major stock
+                        indices show steady growth, with technology and green energy sectors leading the charge.
+                        Inflation rates have stabilized in most Western nations, allowing central banks to maintain
+                        balanced monetary policies.</p>
+
+                    <div class="market-indicator">
+                        <h4>Key Economic Indicators</h4>
+                        <p>Unemployment rates have reached historic lows in several countries, while productivity gains
+                            from digital transformation continue to boost economic output. Consumer confidence remains
+                            strong, supporting steady retail sales growth across the region.</p>
+                    </div>
+
+                    <h3>Monetary Policy & Interest Rates</h3>
+                    <p>Central banks across the Western world are carefully balancing inflation control with economic
+                        growth objectives. The Federal Reserve, European Central Bank, and Bank of England have
+                        maintained moderate interest rate policies to support business investment while keeping
+                        inflation in check.</p>
+
+                    <div class="chart-container">
+                        <h4>Interest Rate Trends</h4>
+                        <div class="chart-placeholder">Interactive Chart: Central Bank Rates 2023-2025</div>
+                    </div>
+
+                    <h3>Trade & Globalization</h3>
+                    <p>Western nations are redefining trade relationships through new bilateral agreements and regional
+                        partnerships. Supply chain diversification continues as companies seek to balance efficiency
+                        with resilience. Digital trade and services are growing rapidly, creating new opportunities for
+                        cross-border commerce.</p>
+
+                    <div class="market-indicator">
+                        <h4>Trade Balance Update</h4>
+                        <p>Export growth in high-tech manufacturing and professional services has improved trade
+                            balances for several Western economies. Agricultural exports remain strong, supported by
+                            increasing global demand.</p>
+                    </div>
+
+                    <h3>Emerging Sectors & Investments</h3>
+                    <p>Renewable energy, biotechnology, and artificial intelligence are attracting significant
+                        investment capital. Venture funding remains robust, particularly for startups addressing
+                        sustainability challenges and digital transformation opportunities.</p>
+                </div>
+
+                <aside class="sidebar">
+                    <h3>Financial Updates</h3>
+
+                    <div class="news-item">
+                        <h4>Stock Market Performance</h4>
+                        <p>Major indices show steady gains as earnings season exceeds expectations in key sectors.</p>
+                    </div>
+
+                    <div class="news-item">
+                        <h4>Central Bank Announcements</h4>
+                        <p>Policy statements indicate continued moderate approach to interest rate adjustments.</p>
+                    </div>
+
+                    <div class="news-item">
+                        <h4>Corporate Earnings</h4>
+                        <p>Technology and healthcare companies report strong quarterly results.</p>
+                    </div>
+
+                    <div class="news-item">
+                        <h4>Employment Data</h4>
+                        <p>Job growth remains robust with wages showing steady increases.</p>
+                    </div>
+
+                    <div class="news-item">
+                        <h4>Commodity Prices</h4>
+                        <p>Energy and agricultural commodities stabilize after recent fluctuations.</p>
+                    </div>
+
+                    <h3 style="margin-top: 2rem;">Quick Facts</h3>
+                    <div style="background: white; padding: 1rem; border-radius: 10px; margin-top: 1rem;">
+                        <p><strong>GDP Growth:</strong> Western economies average 2.8% annual growth</p>
+                        <p><strong>Inflation Rate:</strong> Stabilized at target levels in most countries</p>
+                        <p><strong>Unemployment:</strong> At decade lows across the region</p>
+                    </div>
+                </aside>
+            </div>
+
+            <section class="stats-section">
+                <h2>Economic Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>$45T</h3>
+                        <p>Combined Western GDP</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>2.8%</h3>
+                        <p>Average growth rate</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>4.2%</h3>
+                        <p>Unemployment rate</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>2.1%</h3>
+                        <p>Inflation average</p>
+                    </div>
+                </div>
+            </section>
+
+            <a href="#" class="back-button" onclick="goHome()">← Back to Home</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Western World Insights - Economic Coverage. Professional financial analysis.</p>
+        </div>
+    </footer>
+
+    <script>
+        // وظائف التنقل بين الصفحات
+        function goHome() {
+            window.location.href = "index.html";
+        }
+
+        function showPolitics() {
+            window.location.href = "index2.html";
+        }
+
+        function showTechnology() {
+            window.location.href = "index3.html";
+        }
+
+        function showCulture() {
+            window.location.href = "index4.html";
+        }
+
+        function showEconomy() {
+            window.location.href = "index5.html";
+        }
+
+        function showAbout() {
+            window.location.href = "index6.html";
+        }
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animation-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // اختر العناصر المناسبة لكل صفحة للحركة
+        const elementsToAnimate = document.querySelectorAll('.blog-card, .timeline-item, .stat-item, .culture-item, .event-card');
+        elementsToAnimate.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology | Western World Insights</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .main-content {
+            background: white;
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .article-header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .article-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 3rem;
+        }
+
+        .tech-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid #dee2e6;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(30, 60, 114, 0.2);
+        }
+
+        .tech-card h3 {
+            color: #1e3c72;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .tech-icon {
+            font-size: 2rem;
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tech-card p {
+            color: #495057;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar {
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            height: 8px;
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            transition: width 2s ease;
+        }
+
+        .innovation-timeline {
+            background: #f8f9fa;
+            padding: 3rem;
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-date {
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            font-weight: bold;
+            text-align: center;
+            min-width: 120px;
+            height: fit-content;
+        }
+
+        .timeline-content h4 {
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-button {
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            margin: 2rem 3rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(30, 60, 114, 0.4);
+        }
+
+        footer {
+            background: rgba(44, 62, 80, 0.9);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .tech-grid {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+            }
+        }
+
+        .animation-fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo" onclick="goHome()">WW Insights</a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index2.html">Politics</a></li>
+                        <li><a href="index3.html" style="background: rgba(255,255,255,0.2);">Technology</a></li>
+                        <li><a href="index4.html">Culture</a></li>
+                        <li><a href="index5.html">Economy</a></li>
+                        <li><a href="index6.html">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1 class="animation-fade-in">💻 Technology Revolution</h1>
+            <p class="animation-fade-in">Exploring the cutting-edge innovations transforming the Western world</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="main-content animation-fade-in">
+            <section class="article-header">
+                <h2>Digital Innovation & Future Technologies</h2>
+                <p>Comprehensive coverage of technological breakthroughs shaping our digital future</p>
+            </section>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h3>
+                        <span class="tech-icon">🤖</span>
+                        Artificial Intelligence
+                    </h3>
+                    <p>AI systems are revolutionizing industries from healthcare to finance. Machine learning algorithms
+                        are becoming more sophisticated, enabling breakthrough applications in natural language
+                        processing, computer vision, and autonomous systems.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                    <small>85% adoption rate in major tech companies</small>
+                </div>
+
+                <div class="tech-card">
+                    <h3>
+                        <span class="tech-icon">🔒</span>
+                        Cybersecurity
+                    </h3>
+                    <p>Advanced threat detection and prevention systems are protecting critical infrastructure.
+                        Zero-trust security frameworks and quantum encryption are becoming standard practices in
+                        enterprise environments.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 78%"></div>
+                    </div>
+                    <small>78% increase in security investments</small>
+                </div>
+
+                <div class="tech-card">
+                    <h3>
+                        <span class="tech-icon">☁️</span>
+                        Cloud Computing
+                    </h3>
+                    <p>Multi-cloud strategies and edge computing are transforming how organizations store and process
+                        data. Serverless architectures and containerization are enabling more efficient resource
+                        utilization.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 92%"></div>
+                    </div>
+                    <small>92% of enterprises use cloud services</small>
+                </div>
+
+                <div class="tech-card">
+                    <h3>
+                        <span class="tech-icon">📱</span>
+                        Mobile Innovation
+                    </h3>
+                    <p>5G networks are enabling new mobile experiences with ultra-low latency and high bandwidth.
+                        Augmented reality applications and mobile-first development approaches are reshaping user
+                        interactions.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 67%"></div>
+                    </div>
+                    <small>67% 5G network coverage in urban areas</small>
+                </div>
+
+                <div class="tech-card">
+                    <h3>
+                        <span class="tech-icon">🌐</span>
+                        Internet of Things
+                    </h3>
+                    <p>Smart devices and sensors are creating interconnected ecosystems in homes, cities, and
+                        industries. IoT platforms are enabling real-time monitoring and automated decision-making
+                        processes.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 74%"></div>
+                    </div>
+                    <small>74% growth in connected devices</small>
+                </div>
+
+                <div class="tech-card">
+                    <h3>
+                        <span class="tech-icon">🔗</span>
+                        Blockchain Technology
+                    </h3>
+                    <p>Distributed ledger technologies are finding applications beyond cryptocurrency. Supply chain
+                        transparency, digital identity verification, and decentralized finance are emerging use cases.
+                    </p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 58%"></div>
+                    </div>
+                    <small>58% increase in enterprise adoption</small>
+                </div>
+            </div>
+
+            <section class="innovation-timeline">
+                <h2 style="text-align: center; color: #1e3c72; margin-bottom: 2rem;">Technology Timeline 2025</h2>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Q1 2025</div>
+                    <div class="timeline-content">
+                        <h4>Advanced AI Language Models</h4>
+                        <p>Next-generation language models with improved reasoning capabilities and reduced
+                            computational requirements are being deployed across various industries.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Q2 2025</div>
+                    <div class="timeline-content">
+                        <h4>Quantum Computing Breakthroughs</h4>
+                        <p>Commercial quantum computing systems are showing practical applications in optimization
+                            problems and cryptographic research.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Q3 2025</div>
+                    <div class="timeline-content">
+                        <h4>Sustainable Technology Focus</h4>
+                        <p>Green computing initiatives and carbon-neutral data centers are becoming industry standards
+                            as environmental consciousness grows.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Q4 2025</div>
+                    <div class="timeline-content">
+                        <h4>Extended Reality Integration</h4>
+                        <p>Virtual and augmented reality technologies are being integrated into mainstream business
+                            applications and educational platforms.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="stats-section">
+                <h2>Technology Impact Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>$2.8T</h3>
+                        <p>Global tech market value</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>156M</h3>
+                        <p>Tech jobs created</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>89%</h3>
+                        <p>Digital transformation adoption</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>45%</h3>
+                        <p>Productivity increase</p>
+                    </div>
+                </div>
+            </section>
+
+            <a href="#" class="back-button" onclick="goHome()">← Back to Home</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Western World Insights - Technology Coverage. Exploring the future of innovation.</p>
+        </div>
+    </footer>
+
+    <script>
+        // وظائف التنقل بين الصفحات
+        function goHome() {
+            window.location.href = "index.html";
+        }
+
+        function showPolitics() {
+            window.location.href = "index2.html";
+        }
+
+        function showTechnology() {
+            window.location.href = "index3.html";
+        }
+
+        function showCulture() {
+            window.location.href = "index4.html";
+        }
+
+        function showEconomy() {
+            window.location.href = "index5.html";
+        }
+
+        function showAbout() {
+            window.location.href = "index6.html";
+        }
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animation-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // اختر العناصر المناسبة لكل صفحة للحركة
+        const elementsToAnimate = document.querySelectorAll('.blog-card, .timeline-item, .stat-item, .culture-item, .event-card');
+        elementsToAnimate.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+
+</html>

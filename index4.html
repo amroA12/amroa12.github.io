@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culture | Western World Insights</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .main-content {
+            background: white;
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .article-header {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .article-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .culture-sections {
+            padding: 3rem;
+        }
+
+        .culture-category {
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fff5f5, #ffe8e8);
+            border-radius: 20px;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .culture-category h3 {
+            color: #ff6b6b;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .culture-icon {
+            font-size: 2.5rem;
+        }
+
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .culture-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .culture-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.2);
+        }
+
+        .culture-item h4 {
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .culture-item p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .trending-section {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 3rem;
+            margin: 2rem 0;
+        }
+
+        .trending-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .trending-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .trending-item h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cultural-events {
+            padding: 3rem;
+            background: #f8f9fa;
+        }
+
+        .event-card {
+            background: white;
+            margin: 1.5rem 0;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .event-date {
+            background: #ff6b6b;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .event-card h4 {
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+        }
+
+        .stats-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-box h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-button {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            margin: 2rem 3rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        footer {
+            background: rgba(44, 62, 80, 0.9);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .culture-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .culture-sections {
+                padding: 1.5rem;
+            }
+        }
+
+        .animation-fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo" onclick="goHome()">WW Insights</a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index2.html">Politics</a></li>
+                        <li><a href="index3.html">Technology</a></li>
+                        <li><a href="index4.html" style="background: rgba(255,255,255,0.2);">Culture</a></li>
+                        <li><a href="index5.html">Economy</a></li>
+                        <li><a href="index6.html">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1 class="animation-fade-in">🎭 Cultural Movements</h1>
+            <p class="animation-fade-in">Exploring the rich tapestry of arts, society, and lifestyle in the Western
+                world</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="main-content animation-fade-in">
+            <section class="article-header">
+                <h2>Culture & Society Today</h2>
+                <p>Discovering the trends, movements, and expressions that define contemporary Western culture</p>
+            </section>
+
+            <div class="culture-sections">
+                <div class="culture-category">
+                    <h3>
+                        <span class="culture-icon">🎨</span>
+                        Arts & Creative Expression
+                    </h3>
+                    <div class="culture-grid">
+                        <div class="culture-item">
+                            <h4>Digital Art Revolution</h4>
+                            <p>NFTs and digital galleries are transforming how art is created, displayed, and sold.
+                                Virtual reality exhibitions are making art more accessible to global audiences.</p>
+                        </div>
+                        <div class="culture-item">
+                            <h4>Street Art Movement</h4>
+                            <p>Urban art forms are gaining recognition in mainstream galleries. Cities are embracing
+                                murals and installations as part of cultural identity and community expression.</p>
+                        </div>
+                        <div class="culture-item">
+                            <h4>Interactive Installations</h4>
+                            <p>Technology-enhanced art experiences are engaging audiences in new ways. Immersive
+                                environments blend physical and digital elements for unique artistic encounters.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="culture-category">
+                    <h3>
+                        <span class="culture-icon">🎵</span>
+                        Music & Performance
+                    </h3>
+                    <div class="culture-grid">
+                        <div class="culture-item">
+                            <h4>Streaming Era Impact</h4>
+                            <p>Digital platforms have democratized music distribution, allowing independent artists to
+                                reach global audiences without traditional industry gatekeepers.</p>
+                        </div>
+                        <div class="culture-item">
+                            <h4>Live Performance Innovation</h4>
+                            <p>Virtual concerts and hybrid events are expanding performance possibilities. Artists are
+                                experimenting with new formats that blend physical and digital experiences.</p>
+                        </div>
+                        <div class="culture-item">
+                            <h4>Genre Fusion Trends</h4>
+                            <p>Musical boundaries continue to blur as artists incorporate diverse cultural influences,
+                                creating new hybrid genres that reflect globalized cultural exchange.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="culture-category">
+                    <h3>
+                        <span class="culture-icon">📚</span>
+                        Literature & Media
+                    </h3>
+                    <div class="culture-grid">
+                        <div class="culture-item">
+                            <h4>Digital Publishing</h4>
+                            <p>E-books and audiobooks are changing reading habits. Interactive storytelling formats are
+                                emerging, combining traditional narrative with multimedia elements.</p>
+                        </div>
+                        <div class="culture-item">
+                            <h4>Diverse Voices Rising</h4>
+                            <p>Publishing industry is embracing more diverse authors and stories, reflecting broader
+                                social movements toward inclusion and representation in media.</p>
+                        </div>
+                        <div class="culture-item">
+                            <h4>Podcast Culture</h4>
+                            <p>Audio storytelling is experiencing a renaissance. Podcasts cover everything from true
+                                crime to philosophy, creating new forms of intimate media consumption.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="trending-section">
+                <h2 style="text-align: center; margin-bottom: 2rem;">Cultural Trends 2025</h2>
+                <div class="trending-grid">
+                    <div class="trending-item">
+                        <h4>🌱 Sustainable Living</h4>
+                        <p>Eco-conscious lifestyle choices are becoming mainstream cultural values, influencing
+                            everything from fashion to food choices.</p>
+                    </div>
+                    <div class="trending-item">
+                        <h4>🏠 Remote Culture</h4>
+                        <p>Work-from-home has reshaped social interactions, creating new forms of digital community and
+                            virtual social spaces.</p>
+                    </div>
+                    <div class="trending-item">
+                        <h4>🍔 Food Innovation</h4>
+                        <p>Plant-based cuisine and fusion cooking are reflecting changing dietary preferences and
+                            cultural exchange in Western societies.</p>
+                    </div>
+                    <div class="trending-item">
+                        <h4>🎮 Gaming Culture</h4>
+                        <p>Video games are recognized as legitimate art forms, with gaming communities becoming
+                            significant cultural and social phenomena.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cultural-events">
+                <h2 style="color: #ff6b6b; text-align: center; margin-bottom: 2rem;">Upcoming Cultural Events</h2>
+
+                <div class="event-card">
+                    <span class="event-date">July 2025</span>
+                    <h4>International Arts Festival</h4>
+                    <p>A celebration of contemporary art from emerging and established artists across Western nations,
+                        featuring digital installations, performance art, and collaborative projects.</p>
+                </div>
+
+                <div class="event-card">
+                    <span class="event-date">August 2025</span>
+                    <h4>Cultural Heritage Month</h4>
+                    <p>Museums and cultural institutions will showcase the rich heritage of Western civilizations while
+                        exploring themes of cultural evolution and preservation.</p>
+                </div>
+
+                <div class="event-card">
+                    <span class="event-date">September 2025</span>
+                    <h4>Digital Creativity Summit</h4>
+                    <p>Exploring the intersection of technology and creative expression, featuring workshops,
+                        exhibitions, and discussions on the future of digital arts.</p>
+                </div>
+            </section>
+
+            <div class="stats-showcase">
+                <div class="stat-box">
+                    <h3>73%</h3>
+                    <p>Adults engage with digital media daily</p>
+                </div>
+                <div class="stat-box">
+                    <h3>$890B</h3>
+                    <p>Creative industry market value</p>
+                </div>
+                <div class="stat-box">
+                    <h3>45M</h3>
+                    <p>People work in creative sectors</p>
+                </div>
+                <div class="stat-box">
+                    <h3>82%</h3>
+                    <p>Support for arts education</p>
+                </div>
+            </div>
+
+            <a href="#" class="back-button" onclick="goHome()">← Back to Home</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Western World Insights - Cultural Coverage. Celebrating creativity and human expression.</p>
+        </div>
+    </footer>
+
+    <script>
+        // وظائف التنقل بين الصفحات
+        function goHome() {
+            window.location.href = "index.html";
+        }
+
+        function showPolitics() {
+            window.location.href = "index2.html";
+        }
+
+        function showTechnology() {
+            window.location.href = "index3.html";
+        }
+
+        function showCulture() {
+            window.location.href = "index4.html";
+        }
+
+        function showEconomy() {
+            window.location.href = "index5.html";
+        }
+
+        function showAbout() {
+            window.location.href = "index6.html";
+        }
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animation-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // اختر العناصر المناسبة لكل صفحة للحركة
+        const elementsToAnimate = document.querySelectorAll('.blog-card, .timeline-item, .stat-item, .culture-item, .event-card');
+        elementsToAnimate.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+
+</html>

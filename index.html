@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Western World Insights | Global Trends & Events</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .main-content {
+            background: white;
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .featured-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .featured-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 3rem;
+        }
+
+        .blog-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-card-header {
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .blog-card-content {
+            padding: 2rem;
+        }
+
+        .blog-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .blog-card p {
+            color: #6c757d;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin: 0.2rem;
+        }
+
+        .read-more {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .read-more:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .sidebar {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-left: 1px solid #e9ecef;
+        }
+
+        .sidebar h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .trending-list {
+            list-style: none;
+        }
+
+        .trending-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .trending-list li:hover {
+            background: white;
+            margin: 0 -1rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            border-radius: 10px;
+        }
+
+        .trending-list a {
+            color: #495057;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer {
+            background: rgba(44, 62, 80, 0.9);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #ecf0f1;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+        }
+
+        .animation-fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">WW Insights</a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index2.html">Politics</a></li>
+                        <li><a href="index3.html">Technology</a></li>
+                        <li><a href="index4.html">Culture</a></li>
+                        <li><a href="index5.html">Economy</a></li>
+                        <li><a href="index6.html">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <h1 class="animation-fade-in">Western World Insights</h1>
+            <p class="animation-fade-in">Your comprehensive source for the most significant events, trends, and
+                developments shaping the Western world today</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="main-content animation-fade-in">
+            <section class="featured-section">
+                <h2>Today's Most Important Stories</h2>
+                <p>Stay informed about the events that matter most in North America, Europe, and beyond</p>
+            </section>
+
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-card-header">🏛️</div>
+                    <div class="blog-card-content">
+                        <h3>Political Developments in Western Democracies</h3>
+                        <p>Recent electoral changes, policy reforms, and democratic processes across major Western
+                            nations are reshaping the political landscape. From parliamentary decisions to
+                            constitutional amendments, these developments impact millions of citizens.</p>
+                        <div class="tags">
+                            <span class="tag">Politics</span>
+                            <span class="tag">Democracy</span>
+                            <span class="tag">Elections</span>
+                        </div>
+                        <a href="#" class="read-more">Read Full Article</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-card-header">💻</div>
+                    <div class="blog-card-content">
+                        <h3>Technology Revolution and Digital Transformation</h3>
+                        <p>Artificial intelligence, cybersecurity, and digital innovation continue to transform how
+                            Western societies operate. Major tech companies are launching groundbreaking products that
+                            will define the next decade.</p>
+                        <div class="tags">
+                            <span class="tag">Technology</span>
+                            <span class="tag">AI</span>
+                            <span class="tag">Innovation</span>
+                        </div>
+                        <a href="#" class="read-more">Read Full Article</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-card-header">🌍</div>
+                    <div class="blog-card-content">
+                        <h3>Climate Action and Environmental Policies</h3>
+                        <p>Western governments are implementing ambitious climate policies and green energy initiatives.
+                            Major environmental summits and sustainability programs are setting new global standards for
+                            climate action.</p>
+                        <div class="tags">
+                            <span class="tag">Environment</span>
+                            <span class="tag">Climate</span>
+                            <span class="tag">Sustainability</span>
+                        </div>
+                        <a href="#" class="read-more">Read Full Article</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-card-header">📈</div>
+                    <div class="blog-card-content">
+                        <h3>Economic Trends and Market Developments</h3>
+                        <p>Stock markets, inflation rates, and economic policies in Western countries are creating new
+                            opportunities and challenges. Central bank decisions and trade agreements continue to
+                            influence global markets.</p>
+                        <div class="tags">
+                            <span class="tag">Economy</span>
+                            <span class="tag">Markets</span>
+                            <span class="tag">Finance</span>
+                        </div>
+                        <a href="#" class="read-more">Read Full Article</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-card-header">🎭</div>
+                    <div class="blog-card-content">
+                        <h3>Cultural Movements and Social Changes</h3>
+                        <p>Social movements, cultural trends, and lifestyle changes are reshaping Western societies.
+                            From entertainment industry developments to social justice initiatives, these stories
+                            reflect evolving values.</p>
+                        <div class="tags">
+                            <span class="tag">Culture</span>
+                            <span class="tag">Society</span>
+                            <span class="tag">Lifestyle</span>
+                        </div>
+                        <a href="#" class="read-more">Read Full Article</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-card-header">🏥</div>
+                    <div class="blog-card-content">
+                        <h3>Healthcare Innovations and Public Health</h3>
+                        <p>Medical breakthroughs, healthcare system reforms, and public health initiatives are improving
+                            lives across the Western world. New treatments and health policies are making headlines
+                            globally.</p>
+                        <div class="tags">
+                            <span class="tag">Healthcare</span>
+                            <span class="tag">Medicine</span>
+                            <span class="tag">Public Health</span>
+                        </div>
+                        <a href="#" class="read-more">Read Full Article</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Western World Insights</h4>
+                    <p>We provide comprehensive coverage of the most significant events and trends shaping Western
+                        societies, offering in-depth analysis and expert perspectives.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <p><a href="#">Politics & Government</a></p>
+                    <p><a href="#">Technology & Innovation</a></p>
+                    <p><a href="#">Economy & Business</a></p>
+                    <p><a href="#">Culture & Society</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Stay Connected</h4>
+                    <p>Subscribe to our newsletter for daily updates on the most important stories from across the
+                        Western world.</p>
+                </div>
+            </div>
+            <p>&copy; 2025 Western World Insights. Professional journalism for the modern world.</p>
+        </div>
+    </footer>
+
+    <script>
+        // وظائف التنقل بين الصفحات
+        function goHome() {
+            window.location.href = "index.html";
+        }
+
+        function showPolitics() {
+            window.location.href = "index2.html";
+        }
+
+        function showTechnology() {
+            window.location.href = "index3.html";
+        }
+
+        function showCulture() {
+            window.location.href = "index4.html";
+        }
+
+        function showEconomy() {
+            window.location.href = "index5.html";
+        }
+
+        function showAbout() {
+            window.location.href = "index6.html";
+        }
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animation-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // اختر العناصر المناسبة لكل صفحة للحركة
+        const elementsToAnimate = document.querySelectorAll('.blog-card, .timeline-item, .stat-item, .culture-item, .event-card');
+        elementsToAnimate.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+
+</html>
